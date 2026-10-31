@@ -7,13 +7,13 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:postgresql://localhost:5432/inventory_order_db";
+            System.getenv("DB_URL");
 
     private static final String USER =
-            "postgres";
+            System.getenv("DB_USERNAME");
 
     private static final String PASSWORD =
-            "PostgreSQL";
+            System.getenv("DB_PASSWORD");
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
